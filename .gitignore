@@ -1,0 +1,14 @@
+# build leftovers
+*.o
+*.obj
+*.exe
+*.out
+demo
+demo.ppm
+*.ppm
+
+# editors and OS
+.vs/
+.vscode/
+.DS_Store
+Thumbs.db

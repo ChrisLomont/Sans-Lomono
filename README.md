@@ -25,7 +25,7 @@ I designed this font to be extremely minimal in needed data and code size for us
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `sans_lomono.h`                                              | the API, the metrics, and the entire data format, explained in the comments |
 | `sans_lomono.c`                                              | the data tables, the outline decoder, and a pixel text writer |
-| `demo.c`                                                     | draws the character set in colours, anti-aliased, composited in linear light onto a checkerboard, into a PPM |
+| `demo.c`                                                     | draws the character set in colors, anti-aliased, composited in linear light onto a checkerboard, into a PPM |
 | `sans_lomono.json`                                           | the same outlines uncompressed, one SVG-style command list per character |
 | `sans_lomono.ttf`                                            | the same outlines as a TrueType font, for editors and browsers |
 | `logo.png` `specimen.png` `sizes.png` `sheet.png` `overlay.png` `demo.png` | pictures                                                     |
@@ -42,7 +42,7 @@ Pixels, the easy way:
 
 static void put(void *user, int x, int y, uint32_t rgba)
 {
-    /* your framebuffer here: rgba >> 24 is coverage 0..255, low 24 bits the colour */
+    /* your framebuffer here: rgba >> 24 is coverage 0..255, low 24 bits the color */
 }
 
 int x = 10, y = 10;                                  /* top left of the first cell */
@@ -50,7 +50,7 @@ lomono_draw_text(&x, &y, 16, "hello, world\nframe 42", put, my_surface, 0x00ff00
 /* x, y now point at the next cell, so keep calling to append */
 ```
 
-The cell is 16 pixels tall in that example, and `lomono_cell_w(16)` wide. Newlines return to the starting x and move down one cell. Characters the font does not have advance silently. The callback gets the colour you passed with the pixel's coverage in the top byte, 0..255, computed exactly: the rasterizer is the integer cover/area scanline technique (the one in FreeType's grey renderer), one pixel row at a time, visiting only the rows and columns a character can reach. Blend that alpha however your surface likes; `demo.c` shows the proper way, in linear light.
+The cell is 16 pixels tall in that example, and `lomono_cell_w(16)` wide. Newlines return to the starting x and move down one cell. Characters the font does not have advance silently. The callback gets the color you passed with the pixel's coverage in the top byte, 0..255, computed exactly: the rasterizer is the integer cover/area scanline technique (the one in FreeType's gray renderer), one pixel row at a time, visiting only the rows and columns a character can reach. Blend that alpha however your surface likes; `demo.c` shows the proper way, in linear light.
 
 Outlines, for people with their own rasterizer:
 
