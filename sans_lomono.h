@@ -1,4 +1,4 @@
-// sans_lomono.h - Sans Lomono 1.0 (September 2026), a tiny vector debug font.
+// sans_lomono.h - Sans Lomono 1.1 (September 2026), a tiny vector debug font.
 //
 // Chris Lomont, 2026, www.lomont.org
 // License: do whatever you want with this file, forever, anywhere, with no
@@ -6,7 +6,7 @@
 // the author is not liable for anything that happens because of it.
 //
 // The 95 printable ASCII characters (32..126) as outlines of lines and
-// quadratic beziers, in 1806 bytes of data and about 60 lines of decoder.
+// quadratic beziers, in 1814 bytes of data and about 60 lines of decoder.
 // Monospaced.  No serifs.  No hinting.  No RAM.  No shame.
 //
 // Two ways to use it:
@@ -70,7 +70,7 @@
 // lomono_shape_starts[i+1]): its first point (no selector bit), then L and Q
 // ops only, zero padded.  Shapes are the contours several characters use at
 // different positions: stems, dots, three bar lengths, the lowercase bowl,
-// the capital O, the little rings of % and @.  24 shapes, referenced 90 times.
+// the capital O, the little rings of % and @.  24 shapes, referenced 88 times.
 //
 // Fill rule is NON-ZERO winding.  Strokes overlap on purpose (the bowl of P
 // lies on its stem) and the fill unions them; outer contours are clockwise
@@ -81,16 +81,16 @@
 // Statistics, for the byte counters among us:
 //
 //     characters             95   ASCII 32..126
-//     contours              161   504 lines, 364 quadratics, 1393 points
-//     shared shapes          24   referenced 90 times
+//     contours              161   505 lines, 364 quadratics, 1394 points
+//     shared shapes          24   referenced 88 times
 //
-//     character bit strings   1313 bytes   lomono_char_data
+//     character bit strings   1321 bytes   lomono_char_data
 //     character offsets        192 bytes   lomono_char_starts (96 x uint16)
 //     shared shape strings     276 bytes   lomono_shape_data
 //     shared shape offsets      25 bytes   lomono_shape_starts
-//     total                   1806 bytes
+//     total                   1814 bytes
 //
-//     average per character   13.8 bytes, 14.7 points
+//     average per character   13.9 bytes, 14.7 points
 //
 // Code (clang -Oz): the outline decoder alone is about 570 bytes of Thumb-2
 // on a Cortex-M4 and about 840 bytes on x86-64; decoder plus the pixel text

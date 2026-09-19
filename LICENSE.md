@@ -1,6 +1,6 @@
 # License
 
-Sans Lomono, version 1.0, September 2026.
+Sans Lomono, version 1.1, September 2026.
 Chris Lomont, www.lomont.org
 
 Do whatever you want with everything in this repository: the font, the data,
